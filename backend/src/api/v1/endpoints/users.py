@@ -4,7 +4,7 @@ from core.config import settings
 from crud.user import create_user, update_email
 from fastapi import APIRouter, Depends
 from fastapi.security import OAuth2PasswordRequestForm
-from models.user import User
+from models.users import Users
 from schemas.user import (
     Token,
     UserCreate,
@@ -61,7 +61,7 @@ def login(
 def update_user(
     user: UserUpdate,
     db: Session = Depends(get_db),
-    current_user: User = Depends(get_current_user),
+    current_user: Users = Depends(get_current_user),
 ):
     """
     Update the current user's email.
@@ -94,7 +94,7 @@ def logout(token: str = Depends(oauth2_scheme)):
 
 
 @router.get("/me")
-async def read_users_me(current_user: User = Depends(get_current_user)):
+async def read_users_me(current_user: Users = Depends(get_current_user)):
     """
     Retrieve the current authenticated user's details.
 

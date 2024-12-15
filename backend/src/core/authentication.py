@@ -5,7 +5,7 @@ from core.config import settings
 from core.security import verify_password
 from fastapi import HTTPException, status
 from jose import jwt
-from models.user import User
+from models.users import Users
 from sqlalchemy.orm import Session
 
 

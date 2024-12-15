@@ -8,7 +8,7 @@ from database.session import SessionLocal
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError, jwt
-from models.user import User
+from models.users import Users
 from schemas.user import UserResponse
 from sqlalchemy.orm import Session
 
@@ -71,7 +71,7 @@ def get_current_user(
     return convert_db_to_user_response(user)
 
 
-def convert_db_to_user_response(user: User) -> UserResponse:
+def convert_db_to_user_response(user: Users) -> UserResponse:
     """
     Convert a database user object to a user response object.
 
