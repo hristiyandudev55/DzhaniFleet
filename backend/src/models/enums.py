@@ -8,7 +8,7 @@ class Role(str, Enum):
 
 class DocumentStatus(str, Enum):
     ACTIVE = "active"
-    ABOUT_TO_EXPIRE = "about_to_expire"s
+    ABOUT_TO_EXPIRE = "about_to_expire"
     EXPIRED = "expired"
     UNKNOWN = "unknown"
 
