@@ -45,7 +45,6 @@ class Settings(BaseSettings):
     EMAIL_SENDER: str
     EMAIL_PASSWORD: str
     SMTP_SERVER: str
-    
 
     @field_validator("DATABASE_URL", check_fields=False)
     def normalize_database_url(cls, v: str) -> str:
