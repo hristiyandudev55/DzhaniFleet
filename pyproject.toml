@@ -1,0 +1,52 @@
+[project]
+name = "dzhani-fleet"
+version = "0.1.0"
+description = "Fleet management application"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115.5",                # Core framework for the API
+    "pydantic>=2.10.0",               # Data validation and settings management
+    "pydantic-settings>=2.6.1",       # Enhanced support for managing settings with Pydantic
+    "uvicorn>=0.32.1",                # ASGI server for running FastAPI
+    "sqlalchemy>=2.0.36",             # ORM for database management
+    "psycopg2-binary>=2.9.10",        # PostgreSQL database adapter
+    "python-dotenv>=1.0.1",           # Managing environment variables
+    "apscheduler>=3.10.1",            # Job scheduling for tasks
+    "pyinstaller>=5.13.0",            # Packaging the application into a standalone executable
+    "pyqt5>=5.15.0",                  # GUI framework for optional desktop UI
+    "toga>=0.3.0",                    # BeeWare GUI framework (optional, under consideration)
+    "black>=24.10.0",                 # Code formatter
+    "ruff>=0.7.4",                    # Linter for enforcing code quality
+
+    # Newly added dependencies:
+    "annotated-types>=0.7.0",         # For enhanced type annotations in Pydantic
+    "anyio>=4.6.2.post1",             # Async network communication support
+    "bcrypt>=4.2.1",                  # Secure password hashing
+    "certifi>=2024.8.30",             # SSL certificate validation
+    "cffi>=1.17.1",                   # C extensions for cryptography
+    "cryptography>=43.0.3",           # Core cryptographic operations
+    "ecdsa>=0.19.0",                  # ECDSA algorithms for secure authentication
+    "email-validator>=2.2.0",         # Email validation support
+    "passlib>=1.7.4",                 # Password hashing schemes
+    "pyasn1>=0.6.1",                  # ASN.1 protocol for cryptographic operations
+    "rsa>=4.9",                       # RSA cryptography support
+    "pillow>=11.0.0",                 # Image processing (optional if working with images)
+]
+
+[tool.ruff]
+select = ["E", "F", "I", "C"]
+line-length = 88
+fix = true
+extend-select = ["E301", "E302", "E303", "E305"]
+exclude = ["migrations", ".venv", "__pycache__"]
+
+[tool.ruff.isort]
+known-first-party = ["match_score"]
+default-section = "THIRDPARTY"
+force-sort-within-sections = true
+combine-as-imports = true
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
