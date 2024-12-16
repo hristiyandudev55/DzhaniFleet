@@ -78,7 +78,8 @@ def user_email_exists(db: Session, user_email: str):
             status_code=HTTP_400_BAD_REQUEST,
             detail=(
                 "This email is already registered. "
-                "If you forgot your password, please select the 'Forgot Password' option."
+                "If you forgot your password, please select the 'Forgot Password' "
+                "option."
             ),
         )
 
@@ -129,6 +130,7 @@ def validate_register_num(reg_num: str) -> None:
         reg_num (str): The registration number to be validated.
 
     Raises:
-        ValueError: If the registration number is invalid based on Bulgarian format rules.
+        ValueError: If the registration number is invalid based on Bulgarian format
+        rules.
     """
     pass
